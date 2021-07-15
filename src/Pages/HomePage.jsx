@@ -1,34 +1,33 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from "react-router-dom";
+import { GlobalStateContext } from '../App';
 
 export const HomePage = () => {
-    const [arrayPokemons, setArrayPokemons] = useState([])
+    const {arrayPokemons,detalhesPokemos,getPictures}=useContext(GlobalStateContext)
+    console.log('array de pokemons',arrayPokemons)
+    console.log('detalhes de pokemons',detalhesPokemos)
     useEffect(() => {
-        axios.get('https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20')
-            .then((res) => {
-                console.log(res.data.results)
-                setArrayPokemons(res.data.results)
-            })
+        getPictures()
     }, [])
-    console.log('array', arrayPokemons)
+
     const history = useHistory()
     const pokedex = () => {
         history.push('/carPage')
     }
-    const detalhes = () => {
-        history.push('/details')
+    const detalhes = (nome) => {
+        history.push(`/details/${nome}`)
     }
     return (
         <div>
 
             <button onClick={pokedex}>ir para pokedex</button>
             <h1>Lista de Pokemons</h1>
-            {arrayPokemons.map((a) => {
+            {detalhesPokemos.map((a) => {
                 return (
                     <div>
-                        <h1>{a.name}</h1>
-                        <button onClick={detalhes}>Detalhes</button>
+                        <img src={a.sprites.front_default} />
+                        <button onClick={()=>detalhes(a.name)}>Detalhes</button>
                         <button>Adicionar a Pokedex</button>
                     </div>
 
