@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { api } from '../services/api'
 
 export const usePokemonDetails = (props) => {
-  const [destalhesPokemon, setDetalhesPokemon] = useState([])
+  const [destalhesPokemon, setDetalhesPokemon] = useState({})
   
   useEffect(() => {
     api.get(`${props}`)
