@@ -1,12 +1,22 @@
-import React from 'react'
-import { useHistory } from "react-router-dom";
+import React,{useContext} from 'react'
+import { useHistory,useParams } from "react-router-dom";
 import { Footer, CardFotos, Topo, Conteudocard, PrincipaisAtaques, Main, Container, Fotos, Header, Poderes } from './PokemonDetails/style';
-
+import { GlobalStateContext } from '../App';
 export const DetailsPage = () => {
+    const {arrayPokemons,detalhesPokemos,getPictures}=useContext(GlobalStateContext)
     const history = useHistory()
+    const params = useParams()
+    const nome = params.name
+    console.log(nome)
     const voltar = () => {
         history.goBack('')
     }
+    const details= detalhesPokemos.filter((x)=>{
+        return x.name===nome
+    }).map((x)=>{
+        return [x.moves,x.stats]
+    })
+    console.log('detalhes',details)
     return (
 
         <Container>
@@ -22,10 +32,20 @@ export const DetailsPage = () => {
                 <CardFotos>
 
                     <Fotos>
+                        {detalhesPokemos.map((x)=>{
+                            if(x.name===nome){
+                                return <img src={x.sprites.front_default}/>
+                            }
+                        })}
                         <p>Foto Frente.....</p>                    
                     </Fotos>
 
                     <Fotos>
+                    {detalhesPokemos.map((x)=>{
+                            if(x.name===nome){
+                                return <img src={x.sprites.back_default}/>
+                            }
+                        })}
                         <p>Foto Costa.....</p>                    
                     </Fotos>
 
@@ -67,7 +87,7 @@ export const DetailsPage = () => {
             <Footer>
                 <p> <b>Projeto Pokedex Turma Molina 2021 | Genesis | Lucas | Joice | Matheus  &copy; </b> </p>
             </Footer>
-
+        
         </Container>
     )
 }
