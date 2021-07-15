@@ -1,10 +1,13 @@
 import React from 'react'
 import { Router } from './routes/Router'
-
-import './App.css'
+import { GlobalStyle } from './styles'
+import { PokemonsContextProvider } from './context/pokemonsContext'
 
 export const App = () => {
   return (
-    <Router />
+    <PokemonsContextProvider>
+      <GlobalStyle />
+      <Router />
+    </PokemonsContextProvider>
   )
 }
