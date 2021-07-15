@@ -1,15 +1,21 @@
-import React from 'react';
-import { useHistory } from "react-router-dom";
-import { Container } from './styles';
+import React from "react";
+import { useHistory } from 'react-router-dom';
+import img from '../../assets/image/pokebola.gif'
+import { Button } from "../button/Button";
+import { DivMain } from './styles'
 
 export const Header = () => {
   const history = useHistory()
-  
+
   return (
-    <Container>
-      <button onClick={() => history.goBack()}>voltar</button>
-      <h1>Detalhes</h1>
-      <button >Adicionar ao pokedex</button>
-    </Container>
+    <DivMain>
+      <div className='container'>
+        <img src={img}/>
+        <div className='buttons'>
+          <Button onClick={() => history.push('/')}>Home</Button>
+          <Button onClick={() => history.push('/pokedex')}>Pokedex</Button>
+        </div>
+      </div>
+    </DivMain>
   )
-}
+};
