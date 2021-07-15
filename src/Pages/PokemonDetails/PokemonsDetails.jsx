@@ -28,7 +28,6 @@ export const PokemonsDetails = () => {
 
     return (
         <Container>
-            <Header />
             <Main>
                 <CardFotos>
                     <Fotos>
@@ -68,7 +67,6 @@ export const PokemonsDetails = () => {
                     </Conteudocard>
                 </PrincipaisAtaques>
             </Main>
-            <Footer />
         </Container>
     )
 }

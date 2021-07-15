@@ -1,4 +1,3 @@
-
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -12,11 +11,11 @@ export const GlobalStyle = createGlobalStyle`
       background: #f1f1f1;
     }
     ::-webkit-scrollbar-thumb {
-      background: lightgray;
+      background: var(--red-color);
       border-radius: 10px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(211, 211, 211, 0.7);
+      background: rgba(238, 89, 91, 0.7);
     }
   }
 
@@ -30,8 +29,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --purple-color: #8166CB;
-    --grey-color: #4B4B4B;
+    --red-color: #ee595b;
+    --grey-color: #737388;
+    --grey-light-color: #a8a8b3;
+    --blue-color: rgb(48, 167, 215);
+    --background-color: #f4f5f8;
     --icons-color: #1D407F;
     --logo-font: 'Edo', sans-serif;
     --title-font: 700 'Poppins', sans-serif;

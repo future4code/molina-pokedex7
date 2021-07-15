@@ -1,11 +1,27 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Container = styled.div`
+export const DivMain = styled.div`
   display: flex;
-  min-width: -webkit-fill-available;
-  justify-content: space-around;
-  height: 8vh;
-  background: rgb(48, 167, 215);
-  align-items: center;
-  color: #fcfcfc;
+  justify-content: center;
+  background-color: var(--background-color);
+  height: 20vh;
+
+  .container {
+    display: flex;
+    height: 100%;
+    width: 50vw;
+    justify-content: space-between;
+
+    img {
+      height: 100%;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 20px;
+    }
+  }
+
 `

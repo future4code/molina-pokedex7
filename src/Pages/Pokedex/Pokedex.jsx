@@ -6,8 +6,7 @@ export const Pokedex = () =>{
     
     return(
         <div>
-            <button onClick={() => history.goBack()}>voltar</button>
-            <h1>Carrinho</h1>
+            <h1>Pokedex</h1>
         </div>
     )
 }

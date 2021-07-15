@@ -1,21 +1,27 @@
 import React, { useContext } from 'react'
-import { useHistory } from "react-router-dom";
 import { PokemonsContext } from "../../context/pokemonsContext";
 import { Cards } from '../../components/cards/Cards'
+import { Container } from './styles'
 
 export const Home = () => {
-    const pokemons = useContext(PokemonsContext)
-    const history = useHistory()
+    const { pokemons, isLoading, error } = useContext(PokemonsContext)
 
     return (
-        <div>
-            <button onClick={() => history.push('/pokedex')}>ir para pokedex</button>
-            <h1>Lista de Pokemons</h1>
-            {pokemons.map(({name}, index) => {
-                return (
-                    <Cards name={name} key={index} />
-                )
-            })}
-        </div>
+        <Container>
+            <div className='cards'>
+                {isLoading && <img src="https://cdn.hotware.com.tw/v_comm/global/images/loading.gif" alt="loading" /> }
+                {!isLoading && error && <p>Ocorreu um Erro</p>}
+                {!isLoading && pokemons && pokemons.length > 0 && (
+                    pokemons.map(({name}, index) => {
+                        return (
+                            <Cards name={name} key={index} />
+                        )
+                    })
+                )}
+                {!isLoading && pokemons && pokemons.length === 0 && (
+                    <p>Não há nenhum pokemon</p>
+                )}
+            </div>
+        </Container>
     )
 }
