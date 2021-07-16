@@ -5,6 +5,7 @@ import { Cards } from '../../components/cards/Cards'
 import { Container } from './styles'
 import { Header } from '../../components/header/Header'
 import { Footer } from '../../components/footer/Footer'
+import { Button } from '../../components/button/Button';
 
 export const Pokedex = () => {
     const { pokedex, isLoading, error } = useContext(GlobalStateContext)
@@ -20,10 +21,10 @@ export const Pokedex = () => {
                     {!isLoading && pokedex && pokedex.length > 0 && (
                         pokedex.map(({name}, index) => {
                             return (
-                                <>
-                                    <Cards name={name} key={index} />
-                                    <button onClick={() => removePokemonPokedex(name)}>Remover</button>
-                                </>
+                                <div key={index}>
+                                    <Cards name={name} />
+                                    <Button onClick={() => removePokemonPokedex(name)}>Remover</Button>
+                                </div>
                             )
                         })
                     )}
