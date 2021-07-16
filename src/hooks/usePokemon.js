@@ -44,7 +44,6 @@ export const useGetPokemons = () => {
 }
 
 export const usePokedex = () => {
-  const [ changeButton, setChangeButton ] = useState(true)
   const { pokemonsList, setPokemonsList, pokedex, setPokedex } = useContext(GlobalStateContext)
 
   const addPokemonPokedex = (pokemon) => {
@@ -56,9 +55,7 @@ export const usePokedex = () => {
     })
     setPokemonsList(newList)
     
-    setChangeButton(false)
     console.log('add', pokemon)
-    console.log('pokedex', pokedex)
   }
 
   const removePokemonPokedex = (pokemon) => {
@@ -70,9 +67,8 @@ export const usePokedex = () => {
     })
     setPokedex(newList)
 
-    setChangeButton(true)
     console.log('removeu', pokemon)
   }
 
-  return { changeButton, addPokemonPokedex, removePokemonPokedex }
+  return { addPokemonPokedex, removePokemonPokedex }
 }
