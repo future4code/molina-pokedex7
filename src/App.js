@@ -1,13 +1,13 @@
 import React from 'react'
 import { Router } from './routes/Router'
 import { GlobalStyle } from './globalStyles'
-import { PokemonsContextProvider } from './context/pokemonsContext'
+import { GlobalStateContextProvider } from './context/GlobalStateContext'
 
 export const App = () => {
   return (
-    <PokemonsContextProvider>
+    <GlobalStateContextProvider>
       <GlobalStyle />
       <Router />
-    </PokemonsContextProvider>
+    </GlobalStateContextProvider>
   )
 }
