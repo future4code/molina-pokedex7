@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <DivMain>
       <div className='container'>
-        <img src={img}/>
+        <img src={img} alt='logo' />
         <div className='buttons'>
           <Button onClick={() => history.push('/')}>Home</Button>
           <Button onClick={() => history.push('/pokedex')}>Pokedex</Button>
