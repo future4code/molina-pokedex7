@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react"
+import toast from 'react-hot-toast';
 import { GlobalStateContext } from "../context/GlobalStateContext";
 import { api } from '../services/api'
 
@@ -54,8 +55,7 @@ export const usePokedex = () => {
       return name !== pokemon
     })
     setPokemonsList(newList)
-    
-    console.log('add', pokemon)
+    toast.success(`${pokemon} adicionado a pokedex`)
   }
 
   const removePokemonPokedex = (pokemon) => {
@@ -66,8 +66,7 @@ export const usePokedex = () => {
       return pokemon !== name
     })
     setPokedex(newList)
-
-    console.log('removeu', pokemon)
+    toast.error(`${pokemon} removido da pokedex`)
   }
 
   return { addPokemonPokedex, removePokemonPokedex }
