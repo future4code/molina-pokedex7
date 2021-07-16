@@ -1,12 +1,13 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import { usePokemonDetails } from '../../hooks/usePokemonDetails'
+import { usePokemonDetails, usePokedex } from '../../hooks/usePokemon'
 import { Button } from '../button/Button'
 import { Container } from './styles'
 
 export const Cards= (props) => {
-  const { pokemonDetails, isLoading, error } = usePokemonDetails(props.name)
   const history = useHistory()
+  const { pokemonDetails, isLoading, error } = usePokemonDetails(props.name)
+  const { changeButton, addPokemonPokedex, removePokemonPokedex } = usePokedex()
 
   return (
     <Container>
@@ -20,7 +21,10 @@ export const Cards= (props) => {
           </div>
           <div className='button'>
             <Button color='var(--blue-color)' onClick={() => history.push(`/details/${pokemonDetails.name}`)}>Detalhes</Button>
-            <Button color='#6acb12' >Add a Pokedex</Button>
+            {changeButton === true
+              ? <Button color='#6acb12' onClick={() => addPokemonPokedex(pokemonDetails.name)}>Add a Pokedex</Button>
+              : <Button color='var(--red-color)' onClick={() => removePokemonPokedex(pokemonDetails.name)}>Remover</Button>
+            }
           </div>
         </>
       )}
