@@ -69,4 +69,5 @@ export const Conteudocard = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding-left: 30px;
     height: 80%;
+    overflow: auto;
 `

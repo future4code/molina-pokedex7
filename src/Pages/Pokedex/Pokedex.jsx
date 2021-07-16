@@ -1,12 +1,13 @@
 import React from 'react'
-import { useHistory } from "react-router-dom";
+import { Header } from '../../components/header/Header'
+import { Footer } from '../../components/footer/Footer'
 
-export const Pokedex = () =>{
-    const history =useHistory()
-    
+export const Pokedex = () =>{    
     return(
-        <div>
+        <>
+            <Header />
             <h1>Pokedex</h1>
-        </div>
+            <Footer />
+        </>
     )
 }
