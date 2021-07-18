@@ -21,7 +21,7 @@ export const Home = () => {
                     {!isLoading && pokemonsList && pokemonsList.length > 0 && (
                         pokemonsList.map(({name}, index) => {
                             return (
-                                <div key={index} >
+                                <div key={index} className='card-home'>
                                     <Cards name={name} />
                                     <Button color='#55cc40' onClick={() => addPokemonPokedex(name)}>Add a Pokedex</Button>
                                 </div>

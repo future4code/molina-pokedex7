@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: center;
   width: 200px;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 
   .loading {
     width: 100%;
