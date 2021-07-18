@@ -33,7 +33,7 @@ Projeto criado com intuito de exercitar o useContext.
 
 ## :sparkles: Surge ##
 
-<a href="https://successful-action.surge.sh/" target="_blank">pokedex.com.br</a>
+<a href="https://quarrelsome-wind.surge.sh/" target="_blank">pokedex.com.br</a>
 
 ## :rocket: Tecnologias ##
 
