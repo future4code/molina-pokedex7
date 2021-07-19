@@ -6,7 +6,7 @@
   <!-- <a href="https://labecommercetemplate.netlify.com">Demo</a> -->
 </div>
 
-<h1 align="center">LabeNinjas</h1>
+<h1 align="center">Pokedex</h1>
 
 <!-- Status -->
 
